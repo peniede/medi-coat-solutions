@@ -7,6 +7,8 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Demo from './pages/Demo'
 import Download from './pages/Download'
+import Impressum from './pages/Impressum'
+import Datenschutz from './pages/Datenschutz'
 
 export default function App(){
   return (
@@ -20,6 +22,8 @@ export default function App(){
             <Route path="/contact" element={<Contact/>} />
             <Route path="/demo" element={<Demo/>} />
             <Route path="/download" element={<Download/>} />
+            <Route path="/impressum" element={<Impressum/>} />
+            <Route path="/datenschutz" element={<Datenschutz/>} />
           </Routes>
         </main>
         <Footer />
