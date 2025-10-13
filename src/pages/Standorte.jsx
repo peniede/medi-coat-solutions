@@ -9,6 +9,17 @@ export default function Standorte(){
       <h1 className="text-3xl md:text-4xl font-semibold">Standorte</h1>
       <div className="h bg-gradient-to-r from-blue-800 via-blue-600 to-green-500 opacity-30 rounded-full mt-3 mb-5" />
       <p className="mt-3 text-slate-600 max-w-3xl">Unser zentraler Standort für Entwicklung, Beschichtung und Qualitätssicherung.</p>
+
+      {/* Google Maps Embed: edit the 'q' parameter in the src URL to change the shown address/coordinates */}
+      <div className="w-full h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-lg mt-6 mb-8">
+        <iframe
+          title="Firmensitz Karte"
+          className="w-full h-full border-0"
+          loading="lazy"
+          src="https://www.google.com/maps?q=Ludwig-Wolf-Straße%2023%2C%2075249%20Kieselbronn&output=embed"
+          allowFullScreen
+        />
+      </div>
       <section className="mt-10 grid lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-7">
           <h2 className="text-2xl md:text-3xl font-semibold">Unser Firmensitz</h2>
