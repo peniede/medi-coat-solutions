@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -12,7 +12,7 @@ import Datenschutz from './pages/Datenschutz'
 
 export default function App(){
   return (
-    <BrowserRouter>
+  <HashRouter>
       <div className="backdrop-blur bg-white/60 sticky top-0 z-50">
         <Navbar />
         <main className="py-8">
@@ -28,6 +28,6 @@ export default function App(){
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+  </HashRouter>
   )
 }
