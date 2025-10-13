@@ -49,7 +49,7 @@ export default function Datenschutz(){
         <strong>Rechtsgrundlage:</strong> § 26 Abs. 1 BDSG, Art. 6 Abs. 1 lit. b DSGVO; bei Einwilligung (Talentpool): Art. 6 Abs. 1 lit. a DSGVO; besondere Kategorien gem. Art. 9 Abs. 2 DSGVO.</p>
 
         <h3>3.7 Newsletter/Marketing (falls genutzt)</h3>
-        <p><strong>Daten:</strong> E‑Mail‑Adresse, Einwilligungs‑und Nutzungsdaten.<br/>
+        <p><strong>Daten:</strong> E‑Mail‑Adresse, Einwilligungs‑ und Nutzungsdaten.<br/>
         <strong>Zweck:</strong> Zusendung von Informationen zu Produkten/Dienstleistungen.<br/>
         <strong>Rechtsgrundlagen:</strong> Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 7 UWG (Einwilligung) oder § 7 Abs. 3 UWG (Bestandskundenausnahme).<br/>
         <strong>Widerruf:</strong> jederzeit mit Wirkung für die Zukunft.</p>
