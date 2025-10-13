@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import MediCoatLogo from './MediCoatLogo'
 
 export default function Footer(){
@@ -12,7 +13,13 @@ export default function Footer(){
             <div className="text-slate-500 text-sm">© {new Date().getFullYear()} Alle Rechte vorbehalten</div>
           </div>
         </div>
-        <div className="text-sm text-slate-600">Kontakt: info@medineu.example</div>
+        <div className="flex flex-col items-center md:items-end gap-2">
+          <div className="text-sm text-slate-600">Kontakt: info@medineu.example</div>
+          <div className="text-sm text-slate-600">
+            <Link to="/impressum" className="underline mr-3">Impressum</Link>
+            <Link to="/datenschutz" className="underline">Datenschutz</Link>
+          </div>
+        </div>
       </div>
     </footer>
   )
