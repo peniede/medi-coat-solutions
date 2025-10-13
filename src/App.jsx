@@ -9,6 +9,8 @@ import Demo from './pages/Demo'
 import Download from './pages/Download'
 import Impressum from './pages/Impressum'
 import Datenschutz from './pages/Datenschutz'
+import Team from './pages/Team'
+import Standorte from './pages/Standorte'
 
 export default function App(){
   return (
@@ -21,6 +23,8 @@ export default function App(){
             <Route path="/about" element={<About/>} />
             <Route path="/contact" element={<Contact/>} />
             <Route path="/demo" element={<Demo/>} />
+            <Route path="/team" element={<Team/>} />
+            <Route path="/standorte" element={<Standorte/>} />
             <Route path="/download" element={<Download/>} />
             <Route path="/impressum" element={<Impressum/>} />
             <Route path="/datenschutz" element={<Datenschutz/>} />
