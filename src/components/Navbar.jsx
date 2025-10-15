@@ -42,7 +42,7 @@ export default function Navbar(){
               Unternehmen ▾
             </button>
             {companyOpen && (
-              <div className="absolute left-0 mt-2 w-44 bg-white rounded-md shadow-lg z-50">
+              <div className="absolute mt-2 bg-white rounded-lg shadow-lg w-64 py-2">
                 <Link to="/standorte" onClick={() => setCompanyOpen(false)} className="block px-4 py-2 text-sm hover:bg-slate-50" >Standorte</Link>
                 <Link to="/team" onClick={() => setCompanyOpen(false)} className="block px-4 py-2 text-sm hover:bg-slate-50">Team</Link>
                 <Link to="/about" onClick={() => setCompanyOpen(false)} className="block px-4 py-2 text-sm hover:bg-slate-50">Über uns</Link>
