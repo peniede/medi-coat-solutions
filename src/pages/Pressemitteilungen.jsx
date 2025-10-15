@@ -16,6 +16,7 @@ export default function Pressemitteilungen(){
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
       <h1 className="text-3xl md:text-4xl font-semibold">Pressemitteilungen</h1>
+      <div className="h-3 bg-gradient-to-r from-blue-800 via-blue-600 to-green-500 opacity-30 rounded-full mt-3 mb-5" />
       <section className="mt-10">
         <p className="text-slate-700 leading-relaxed mt-4">Als junges Unternehmen veröffentlichen wir ausgewählte Meldungen.</p>
       </section>
