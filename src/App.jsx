@@ -16,6 +16,9 @@ import Blog from './pages/Blog'
 import Messeauftritte from './pages/Messeauftritte'
 import Pressemitteilungen from './pages/Pressemitteilungen'
 import InnovationForschung from './pages/InnovationForschung'
+import Portfolio from './pages/produkte/portfolio'
+import Dienstleistungen from './pages/produkte/dienstleistungen'
+import DownloadcenterProducts from './pages/produkte/downloadcenter'
 
 export default function App(){
   return (
@@ -31,6 +34,9 @@ export default function App(){
             <Route path="/team" element={<Team/>} />
             <Route path="/standorte" element={<Standorte/>} />
             <Route path="/download" element={<Download/>} />
+            <Route path="/produkte/portfolio" element={<Portfolio/>} />
+            <Route path="/produkte/dienstleistungen" element={<Dienstleistungen/>} />
+            <Route path="/produkte/downloadcenter" element={<DownloadcenterProducts/>} />
             <Route path="/aktuelles" element={<Aktuelles/>} />
             <Route path="/blog" element={<Blog/>} />
             <Route path="/messeauftritte" element={<Messeauftritte/>} />

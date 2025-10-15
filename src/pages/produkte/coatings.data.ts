@@ -1,4 +1,3 @@
-
 export type Coating = { name: string; color: string; hardness: string; thickness: string; corrosion: string; features: string[]; };
 export const COATINGS: Coating[] = [
   { name: "TiN-mod (Titannitrid) – Der „Allrounder“", color: "goldgelb (L*/ a*/ b*: 76/ 4/ 38 ±5)", hardness: "3100 ±200 HV", thickness: "1 – 3 µm", corrosion: "gut",
