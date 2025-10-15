@@ -5,9 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+  "build": "vite build",
+  "prebuild": "node scripts/generate-download-metadata.js",
     "preview": "vite preview",
     "generate-download-metadata": "node scripts/generate-download-metadata.js",
+  "generate-download-index": "node scripts/generate-download-metadata.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

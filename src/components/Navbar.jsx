@@ -7,8 +7,10 @@ export default function Navbar(){
   const [openMobile, setOpenMobile] = useState(false)
   const [companyOpen, setCompanyOpen] = useState(false)
   const [newsOpen, setNewsOpen] = useState(false)
+  const [productOpen, setProductOpen] = useState(false)
   const companyRef = useRef(null)
   const newsRef = useRef(null)
+  const productRef = useRef(null)
 
   useEffect(() => {
     function onDocClick(e){
@@ -16,6 +18,7 @@ export default function Navbar(){
         setCompanyOpen(false)
       }
       if (newsRef.current && !newsRef.current.contains(e.target)) setNewsOpen(false)
+      if (productRef.current && !productRef.current.contains(e.target)) setProductOpen(false)
     }
     document.addEventListener('mousedown', onDocClick)
     return () => document.removeEventListener('mousedown', onDocClick)
@@ -68,7 +71,22 @@ export default function Navbar(){
             )}
           </div>
 
-          <Link className="hover:text-slate-900" to="/download">Download</Link>
+          <div className="relative" ref={productRef}>
+            <button
+              onClick={() => setProductOpen(v => !v)}
+              className="px-3 py-2 rounded hover:bg-slate-100"
+              aria-expanded={productOpen}
+            >
+              Produkte ▾
+            </button>
+            {productOpen && (
+              <div className="absolute mt-2 bg-white rounded-lg shadow-lg w-56 py-2">
+                <Link to="/produkte/portfolio" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setProductOpen(false)}>Portfolio</Link>
+                <Link to="/produkte/dienstleistungen" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setProductOpen(false)}>Dienstleistungen</Link>
+                <Link to="/produkte/downloadcenter" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setProductOpen(false)}>Downloadcenter</Link>
+              </div>
+            )}
+          </div>
         </nav>
 
         <div className="hidden md:block">
@@ -116,7 +134,16 @@ export default function Navbar(){
               )}
             </div>
 
-            <Link to="/download" className="block px-2 py-2" onClick={() => setOpenMobile(false)}>Download</Link>
+            <div>
+              <button className="w-full text-left px-2 py-2 rounded hover:bg-slate-50" onClick={() => setProductOpen(v => !v)}>Produkte ▾</button>
+              {productOpen && (
+                <div className="pl-4">
+                  <Link to="/produkte/portfolio" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setProductOpen(false); }}>Portfolio</Link>
+                  <Link to="/produkte/dienstleistungen" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setProductOpen(false); }}>Dienstleistungen</Link>
+                  <Link to="/produkte/downloadcenter" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setProductOpen(false); }}>Downloadcenter</Link>
+                </div>
+              )}
+            </div>
 
             <div className="pt-2">
               <Link to="/contact" onClick={() => setOpenMobile(false)}>
