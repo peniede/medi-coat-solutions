@@ -4,10 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medi Neu - Moderne Homepage</title>
-    <script type="module" crossorigin src="/medi-coat-solutions/assets/index-BFEBxiR_.js"></script>
-    <link rel="stylesheet" crossorigin href="/medi-coat-solutions/assets/index-CyyGSNF2.css">
+    <script type="module" crossorigin src="/medi-coat-solutions/assets/index-BS9njMZT.js"></script>
+    <link rel="stylesheet" crossorigin href="/medi-coat-solutions/assets/index-5pulnl2k.css">
   </head>
-  <body class="bg-gradient-to-r from-blue-900/[0.12] via-blue-600/[0.08] to-green-500/[0.12] bg-fixed min-h-screen">
+  <body class="bg-gradient-to-r from-blue-900/[0.12] via-blue-600/[0.08] to-green-500/[0.12] dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 bg-fixed min-h-screen">
+    <!-- Theme init: set .dark on <html> based on localStorage override or system preference -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme'); // 'light' | 'dark' | null
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (!stored && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+
     <div id="root"></div>
   </body>
 </html>
