@@ -4,15 +4,18 @@ import Button from './Button'
 import MediCoatLogo from './MediCoatLogo'
 
 export default function Navbar(){
-  const [open, setOpen] = useState(false)
+  const [openMobile, setOpenMobile] = useState(false)
   const [companyOpen, setCompanyOpen] = useState(false)
+  const [newsOpen, setNewsOpen] = useState(false)
   const companyRef = useRef(null)
+  const newsRef = useRef(null)
 
   useEffect(() => {
     function onDocClick(e){
       if(companyRef.current && !companyRef.current.contains(e.target)){
         setCompanyOpen(false)
       }
+      if (newsRef.current && !newsRef.current.contains(e.target)) setNewsOpen(false)
     }
     document.addEventListener('mousedown', onDocClick)
     return () => document.removeEventListener('mousedown', onDocClick)
@@ -47,7 +50,24 @@ export default function Navbar(){
             )}
           </div>
 
-          <Link className="hover:text-slate-900" to="/contact">Kontakt</Link>
+          <div className="relative" ref={newsRef}>
+            <button
+              onClick={() => setNewsOpen(v => !v)}
+              className="px-3 py-2 rounded hover:bg-slate-100"
+              aria-expanded={newsOpen}
+            >
+              Aktuelles ▾
+            </button>
+            {newsOpen && (
+              <div className="absolute mt-2 bg-white rounded-lg shadow-lg w-64 py-2">
+                <Link to="/blog" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Blog</Link>
+                <Link to="/messeauftritte" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Messeauftritte</Link>
+                <Link to="/pressemitteilungen" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Pressemitteilungen</Link>
+                <Link to="/innovation-forschung" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Innovation / Forschung</Link>
+              </div>
+            )}
+          </div>
+
           <Link className="hover:text-slate-900" to="/download">Download</Link>
         </nav>
 
@@ -55,37 +75,53 @@ export default function Navbar(){
           <Button to="/contact" className="px-4 py-2">Beratung anfragen</Button>
         </div>
 
-        {/* Mobile burger */}
+        {/* Mobile toggle */}
         <div className="md:hidden">
           <button
-            onClick={() => setOpen(v => !v)}
-            aria-expanded={open}
+            onClick={() => setOpenMobile(v => !v)}
+            aria-expanded={openMobile}
             aria-label="Menü öffnen"
             className="p-2 rounded-md bg-slate-100"
           >
-            {open ? '✕' : '☰'}
+            {openMobile ? '✕' : '☰'}
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden bg-white/95 backdrop-blur shadow-sm">
-          <div className="container mx-auto px-6 py-4 flex flex-col gap-3">
+      {openMobile && (
+        <div className="md:hidden bg-white/80 backdrop-blur border-t">
+          <div className="px-4 py-3 space-y-2">
             <div>
               <div className="font-medium">Unternehmen</div>
               <div className="mt-2 flex flex-col pl-3">
-                <Link to="/standorte" onClick={() => setOpen(false)} className="py-1">Standorte</Link>
-                <Link to="/team" onClick={() => setOpen(false)} className="py-1">Team</Link>
-                <Link to="/about" onClick={() => setOpen(false)} className="py-1">Über uns</Link>
+                <Link to="/standorte" onClick={() => setOpenMobile(false)} className="py-1">Standorte</Link>
+                <Link to="/team" onClick={() => setOpenMobile(false)} className="py-1">Team</Link>
+                <Link to="/about" onClick={() => setOpenMobile(false)} className="py-1">Über uns</Link>
               </div>
             </div>
 
-            <Link to="/contact" onClick={() => setOpen(false)} className="py-2">Kontakt</Link>
-            <Link to="/download" onClick={() => setOpen(false)} className="py-2">Download</Link>
+            <div>
+              <button
+                className="w-full text-left px-2 py-2 rounded hover:bg-slate-50"
+                onClick={() => setNewsOpen(v => !v)}
+              >Aktuelles ▾</button>
+              {newsOpen && (
+                <div className="pl-4">
+                  <Link to="/blog" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setNewsOpen(false); }}>Blog</Link>
+                  <Link to="/messeauftritte" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setNewsOpen(false); }}>Messeauftritte</Link>
+                  <Link to="/pressemitteilungen" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setNewsOpen(false); }}>Pressemitteilungen</Link>
+                  <Link to="/innovation-forschung" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setNewsOpen(false); }}>Innovation / Forschung</Link>
+                </div>
+              )}
+            </div>
+
+            <Link to="/download" className="block px-2 py-2" onClick={() => setOpenMobile(false)}>Download</Link>
 
             <div className="pt-2">
-              <Button to="/contact" className="w-full justify-center">Beratung anfragen</Button>
+              <Link to="/contact" onClick={() => setOpenMobile(false)}>
+                <Button className="w-full">Beratung anfragen</Button>
+              </Link>
             </div>
           </div>
         </div>
