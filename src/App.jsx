@@ -11,6 +11,7 @@ import Impressum from './pages/Impressum'
 import Datenschutz from './pages/Datenschutz'
 import Team from './pages/Team'
 import Standorte from './pages/Standorte'
+import Zertifizierung from './pages/unternehmen/zertifizierung'
 import Aktuelles from './pages/Aktuelles'
 import Blog from './pages/Blog'
 import Messeauftritte from './pages/Messeauftritte'
@@ -37,6 +38,7 @@ export default function App(){
             <Route path="/produkte/portfolio" element={<Portfolio/>} />
             <Route path="/produkte/dienstleistungen" element={<Dienstleistungen/>} />
             <Route path="/produkte/downloadcenter" element={<DownloadcenterProducts/>} />
+            <Route path="/unternehmen/zertifizierung" element={<Zertifizierung/>} />
             <Route path="/aktuelles" element={<Aktuelles/>} />
             <Route path="/blog" element={<Blog/>} />
             <Route path="/messeauftritte" element={<Messeauftritte/>} />
