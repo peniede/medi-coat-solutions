@@ -49,6 +49,7 @@ export default function Navbar(){
                 <Link to="/standorte" onClick={() => setCompanyOpen(false)} className="block px-4 py-2 text-sm hover:bg-slate-50" >Standorte</Link>
                 <Link to="/team" onClick={() => setCompanyOpen(false)} className="block px-4 py-2 text-sm hover:bg-slate-50">Team</Link>
                 <Link to="/about" onClick={() => setCompanyOpen(false)} className="block px-4 py-2 text-sm hover:bg-slate-50">Über uns</Link>
+                <Link to="/unternehmen/zertifizierung" onClick={() => setCompanyOpen(false)} className="block px-4 py-2 text-sm hover:bg-slate-50">Zertifizierung</Link>
               </div>
             )}
           </div>
@@ -116,6 +117,7 @@ export default function Navbar(){
                 <Link to="/standorte" onClick={() => setOpenMobile(false)} className="py-1">Standorte</Link>
                 <Link to="/team" onClick={() => setOpenMobile(false)} className="py-1">Team</Link>
                 <Link to="/about" onClick={() => setOpenMobile(false)} className="py-1">Über uns</Link>
+                <Link to="/unternehmen/zertifizierung" onClick={() => setOpenMobile(false)} className="py-1">Zertifizierung</Link>
               </div>
             </div>
 
