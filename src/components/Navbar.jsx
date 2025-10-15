@@ -25,7 +25,7 @@ export default function Navbar(){
   }, [])
 
   return (
-    <header className="backdrop-blur bg-gradient-to-r from-blue-900/0 via-blue-600/0 to-green-500/0 backdrop-blur sticky top-0 z-50">
+    <header className="backdrop-blur bg-gradient-to-r from-blue-900/0 via-blue-600/0 to-green-500/0 sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-3">
@@ -57,17 +57,18 @@ export default function Navbar(){
           <div className="relative" ref={newsRef}>
             <button
               onClick={() => setNewsOpen(v => !v)}
-              className="px-3 py-2 rounded hover:bg-slate-100"
               aria-expanded={newsOpen}
+              aria-haspopup="menu"
+              className="flex items-center gap-2 hover:text-slate-900"
             >
               Aktuelles ▾
             </button>
             {newsOpen && (
               <div className="absolute mt-2 bg-white rounded-lg shadow-lg w-64 py-2">
-                <Link to="/blog" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Blog</Link>
-                <Link to="/messeauftritte" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Messeauftritte</Link>
-                <Link to="/pressemitteilungen" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Pressemitteilungen</Link>
-                <Link to="/innovation-forschung" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Innovation / Forschung</Link>
+                <Link to="/blog" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Blog</Link>
+                <Link to="/messeauftritte" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Messeauftritte</Link>
+                <Link to="/pressemitteilungen" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Pressemitteilungen</Link>
+                <Link to="/innovation-forschung" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setNewsOpen(false)}>Innovation / Forschung</Link>
               </div>
             )}
           </div>
@@ -75,16 +76,17 @@ export default function Navbar(){
           <div className="relative" ref={productRef}>
             <button
               onClick={() => setProductOpen(v => !v)}
-              className="px-3 py-2 rounded hover:bg-slate-100"
               aria-expanded={productOpen}
+              aria-haspopup="menu"
+              className="flex items-center gap-2 hover:text-slate-900"
             >
               Produkte ▾
             </button>
             {productOpen && (
-              <div className="absolute mt-2 bg-white rounded-lg shadow-lg w-56 py-2">
-                <Link to="/produkte/portfolio" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setProductOpen(false)}>Portfolio</Link>
-                <Link to="/produkte/dienstleistungen" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setProductOpen(false)}>Dienstleistungen</Link>
-                <Link to="/produkte/downloadcenter" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setProductOpen(false)}>Downloadcenter</Link>
+              <div className="absolute mt-2 bg-white rounded-lg shadow-lg w-64 py-2">
+                <Link to="/produkte/portfolio" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setProductOpen(false)}>Portfolio</Link>
+                <Link to="/produkte/dienstleistungen" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setProductOpen(false)}>Dienstleistungen</Link>
+                <Link to="/produkte/downloadcenter" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setProductOpen(false)}>Downloadcenter</Link>
               </div>
             )}
           </div>
@@ -122,29 +124,26 @@ export default function Navbar(){
             </div>
 
             <div>
-              <button
-                className="w-full text-left px-2 py-2 rounded hover:bg-slate-50"
-                onClick={() => setNewsOpen(v => !v)}
-              >Aktuelles ▾</button>
-              {newsOpen && (
-                <div className="pl-4">
-                  <Link to="/blog" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setNewsOpen(false); }}>Blog</Link>
-                  <Link to="/messeauftritte" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setNewsOpen(false); }}>Messeauftritte</Link>
-                  <Link to="/pressemitteilungen" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setNewsOpen(false); }}>Pressemitteilungen</Link>
-                  <Link to="/innovation-forschung" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setNewsOpen(false); }}>Innovation / Forschung</Link>
+              <div>
+                <div className="font-medium">Aktuelles</div>
+                <div className="mt-2 flex flex-col pl-3">
+                  <Link to="/blog" onClick={() => { setOpenMobile(false); setNewsOpen(false); }} className="py-1">Blog</Link>
+                  <Link to="/messeauftritte" onClick={() => { setOpenMobile(false); setNewsOpen(false); }} className="py-1">Messeauftritte</Link>
+                  <Link to="/pressemitteilungen" onClick={() => { setOpenMobile(false); setNewsOpen(false); }} className="py-1">Pressemitteilungen</Link>
+                  <Link to="/innovation-forschung" onClick={() => { setOpenMobile(false); setNewsOpen(false); }} className="py-1">Innovation / Forschung</Link>
                 </div>
-              )}
+              </div>
             </div>
 
             <div>
-              <button className="w-full text-left px-2 py-2 rounded hover:bg-slate-50" onClick={() => setProductOpen(v => !v)}>Produkte ▾</button>
-              {productOpen && (
-                <div className="pl-4">
-                  <Link to="/produkte/portfolio" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setProductOpen(false); }}>Portfolio</Link>
-                  <Link to="/produkte/dienstleistungen" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setProductOpen(false); }}>Dienstleistungen</Link>
-                  <Link to="/produkte/downloadcenter" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setProductOpen(false); }}>Downloadcenter</Link>
-                </div>
-              )}
+            <div>
+              <div className="font-medium">Produkte</div>
+              <div className="mt-2 flex flex-col pl-3">
+                <Link to="/produkte/portfolio" onClick={() => { setOpenMobile(false); setProductOpen(false); }} className="py-1">Portfolio</Link>
+                <Link to="/produkte/dienstleistungen" onClick={() => { setOpenMobile(false); setProductOpen(false); }} className="py-1">Dienstleistungen</Link>
+                <Link to="/produkte/downloadcenter" onClick={() => { setOpenMobile(false); setProductOpen(false); }} className="py-1">Downloadcenter</Link>
+              </div>
+            </div>
             </div>
 
             <div className="pt-2">
