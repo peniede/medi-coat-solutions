@@ -1,5 +1,5 @@
 import React from 'react'
-import { COATINGS, STORAGE_KEY } from '../../components/pages/Produkte/Portfolio/coatings.data'
+import { COATINGS, STORAGE_KEY } from './coatings.data'
 
 // Minimal local FrameCard and SpecLine to avoid shared/ui dependency
 function FrameCard({ children, active }){
