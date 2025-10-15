@@ -4,7 +4,7 @@ export default function Hero(){
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-900/10 via-blue-600/5 to-green-500/10">
+      <section className="relative overflow-hidden bg-white/0">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">

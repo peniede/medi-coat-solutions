@@ -25,7 +25,7 @@ export default function Navbar(){
   }, [])
 
   return (
-    <header className="backdrop-blur bg-white/50 sticky top-0 z-50">
+    <header className="backdrop-blur bg-gradient-to-r from-blue-900/0 via-blue-600/0 to-green-500/0 backdrop-blur sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-3">

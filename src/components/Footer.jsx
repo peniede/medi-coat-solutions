@@ -4,7 +4,7 @@ import MediCoatLogo from './MediCoatLogo'
 
 export default function Footer(){
   return (
-  <footer className="mt-16 bg-white/60 backdrop-blur">
+  <footer className="mt-16 bg-gradient-to-r from-blue-900/0 via-blue-600/0 to-green-500/0 backdrop-blur">
       <div className="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-3">
           <MediCoatLogo />
