@@ -23,6 +23,9 @@ import DownloadcenterProducts from './pages/produkte/downloadcenter'
 import Arbeiten from './pages/karriere/arbeiten'
 import Ausbildung from './pages/karriere/ausbildung'
 import OffeneStellen from './pages/karriere/offene-stellen'
+import Konformitaet from './pages/nachhaltigkeit/konformitaet'
+import SozialeVerantwortung from './pages/nachhaltigkeit/soziale-verantwortung'
+import Umweltmanagement from './pages/nachhaltigkeit/umweltmanagement'
 
 export default function App(){
   return (
@@ -48,6 +51,9 @@ export default function App(){
             <Route path="/messeauftritte" element={<Messeauftritte/>} />
             <Route path="/pressemitteilungen" element={<Pressemitteilungen/>} />
             <Route path="/innovation-forschung" element={<InnovationForschung/>} />
+            <Route path="/nachhaltigkeit/konformitaet" element={<Konformitaet/>} />
+            <Route path="/nachhaltigkeit/soziale-verantwortung" element={<SozialeVerantwortung/>} />
+            <Route path="/nachhaltigkeit/umweltmanagement" element={<Umweltmanagement/>} />
             <Route path="/karriere/arbeiten" element={<Arbeiten/>} />
             <Route path="/karriere/ausbildung" element={<Ausbildung/>} />
             <Route path="/karriere/offene-stellen" element={<OffeneStellen/>} />

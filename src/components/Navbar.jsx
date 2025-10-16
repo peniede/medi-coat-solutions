@@ -9,10 +9,12 @@ export default function Navbar(){
   const [newsOpen, setNewsOpen] = useState(false)
   const [productOpen, setProductOpen] = useState(false)
   const [careerOpen, setCareerOpen] = useState(false)
+  const [sustainOpen, setSustainOpen] = useState(false)
   const companyRef = useRef(null)
   const newsRef = useRef(null)
   const productRef = useRef(null)
   const careerRef = useRef(null)
+  const sustainRef = useRef(null)
 
   useEffect(() => {
     function onDocClick(e){
@@ -22,6 +24,7 @@ export default function Navbar(){
       if (newsRef.current && !newsRef.current.contains(e.target)) setNewsOpen(false)
       if (productRef.current && !productRef.current.contains(e.target)) setProductOpen(false)
       if (careerRef.current && !careerRef.current.contains(e.target)) setCareerOpen(false)
+      if (sustainRef.current && !sustainRef.current.contains(e.target)) setSustainOpen(false)
     }
     document.addEventListener('mousedown', onDocClick)
     return () => document.removeEventListener('mousedown', onDocClick)
@@ -110,6 +113,24 @@ export default function Navbar(){
               </div>
             )}
           </div>
+          
+          <div className="relative" ref={sustainRef}>
+            <button
+              onClick={() => setSustainOpen(v => !v)}
+              aria-expanded={sustainOpen}
+              aria-haspopup="menu"
+              className="flex items-center gap-2 hover:text-slate-900"
+            >
+              Nachhaltigkeit ▾
+            </button>
+            {sustainOpen && (
+              <div className="absolute mt-2 bg-white rounded-lg shadow-lg w-72 py-2">
+                <Link to="/nachhaltigkeit/konformitaet" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setSustainOpen(false)}>Konformität</Link>
+                <Link to="/nachhaltigkeit/soziale-verantwortung" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setSustainOpen(false)}>Soziale Verantwortung</Link>
+                <Link to="/nachhaltigkeit/umweltmanagement" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setSustainOpen(false)}>Umweltmanagement</Link>
+              </div>
+            )}
+          </div>
         </nav>
 
         <div className="hidden md:block">
@@ -168,6 +189,17 @@ export default function Navbar(){
                 </div>
               )}
             </div>
+
+              <div>
+                <button className="w-full text-left px-2 py-2 rounded hover:bg-slate-50" onClick={() => setSustainOpen(v => !v)}>Nachhaltigkeit ▾</button>
+                {sustainOpen && (
+                  <div className="pl-4">
+                    <Link to="/nachhaltigkeit/konformitaet" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setSustainOpen(false); }}>Konformität</Link>
+                    <Link to="/nachhaltigkeit/soziale-verantwortung" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setSustainOpen(false); }}>Soziale Verantwortung</Link>
+                    <Link to="/nachhaltigkeit/umweltmanagement" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setSustainOpen(false); }}>Umweltmanagement</Link>
+                  </div>
+                )}
+              </div>
 
               <div>
                 <button
