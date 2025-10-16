@@ -1,4 +1,7 @@
 {
+  "REACH-Bescheinigung.pdf": {
+    "size": 1461
+  },
   "agbs.pdf": {
     "size": 1398
   },
@@ -25,8 +28,5 @@
   },
   "datenschutzerklaerung.pdf": {
     "size": 1309
-  },
-  "REACH-Bescheinigung.pdf": {
-    "size": 1461
   }
 }
