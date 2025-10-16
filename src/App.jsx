@@ -20,6 +20,9 @@ import InnovationForschung from './pages/InnovationForschung'
 import Portfolio from './pages/produkte/portfolio'
 import Dienstleistungen from './pages/produkte/dienstleistungen'
 import DownloadcenterProducts from './pages/produkte/downloadcenter'
+import Arbeiten from './pages/karriere/arbeiten'
+import Ausbildung from './pages/karriere/ausbildung'
+import OffeneStellen from './pages/karriere/offene-stellen'
 
 export default function App(){
   return (
@@ -45,6 +48,9 @@ export default function App(){
             <Route path="/messeauftritte" element={<Messeauftritte/>} />
             <Route path="/pressemitteilungen" element={<Pressemitteilungen/>} />
             <Route path="/innovation-forschung" element={<InnovationForschung/>} />
+            <Route path="/karriere/arbeiten" element={<Arbeiten/>} />
+            <Route path="/karriere/ausbildung" element={<Ausbildung/>} />
+            <Route path="/karriere/offene-stellen" element={<OffeneStellen/>} />
             <Route path="/impressum" element={<Impressum/>} />
             <Route path="/datenschutz" element={<Datenschutz/>} />
           </Routes>
