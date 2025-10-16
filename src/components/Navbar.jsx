@@ -8,9 +8,11 @@ export default function Navbar(){
   const [companyOpen, setCompanyOpen] = useState(false)
   const [newsOpen, setNewsOpen] = useState(false)
   const [productOpen, setProductOpen] = useState(false)
+  const [careerOpen, setCareerOpen] = useState(false)
   const companyRef = useRef(null)
   const newsRef = useRef(null)
   const productRef = useRef(null)
+  const careerRef = useRef(null)
 
   useEffect(() => {
     function onDocClick(e){
@@ -19,6 +21,7 @@ export default function Navbar(){
       }
       if (newsRef.current && !newsRef.current.contains(e.target)) setNewsOpen(false)
       if (productRef.current && !productRef.current.contains(e.target)) setProductOpen(false)
+      if (careerRef.current && !careerRef.current.contains(e.target)) setCareerOpen(false)
     }
     document.addEventListener('mousedown', onDocClick)
     return () => document.removeEventListener('mousedown', onDocClick)
@@ -26,7 +29,7 @@ export default function Navbar(){
 
   return (
     <header className="backdrop-blur bg-gradient-to-r from-blue-900/0 via-blue-600/0 to-green-500/0 backdrop-blur sticky top-0 z-50">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-3">
             <MediCoatLogo />
@@ -57,8 +60,9 @@ export default function Navbar(){
           <div className="relative" ref={newsRef}>
             <button
               onClick={() => setNewsOpen(v => !v)}
-              className="px-3 py-2 rounded hover:bg-slate-100"
               aria-expanded={newsOpen}
+              aria-haspopup="menu"
+              className="flex items-center gap-2 hover:text-slate-900"
             >
               Aktuelles ▾
             </button>
@@ -75,8 +79,9 @@ export default function Navbar(){
           <div className="relative" ref={productRef}>
             <button
               onClick={() => setProductOpen(v => !v)}
-              className="px-3 py-2 rounded hover:bg-slate-100"
               aria-expanded={productOpen}
+              aria-haspopup="menu"
+              className="flex items-center gap-2 hover:text-slate-900"
             >
               Produkte ▾
             </button>
@@ -85,6 +90,23 @@ export default function Navbar(){
                 <Link to="/produkte/portfolio" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setProductOpen(false)}>Portfolio</Link>
                 <Link to="/produkte/dienstleistungen" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setProductOpen(false)}>Dienstleistungen</Link>
                 <Link to="/produkte/downloadcenter" className="block px-4 py-2 hover:bg-slate-50" onClick={() => setProductOpen(false)}>Downloadcenter</Link>
+              </div>
+            )}
+          </div>
+          <div className="relative" ref={careerRef}>
+            <button
+              onClick={() => setCareerOpen(v => !v)}
+              aria-expanded={careerOpen}
+              aria-haspopup="menu"
+              className="flex items-center gap-2 hover:text-slate-900"
+            >
+              Karriere ▾
+            </button>
+            {careerOpen && (
+              <div className="absolute mt-2 bg-white rounded-lg shadow-lg w-64 py-2">
+                <Link to="/karriere/arbeiten" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setCareerOpen(false)}>Arbeiten bei uns</Link>
+                <Link to="/karriere/ausbildung" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setCareerOpen(false)}>Ausbildung / Praktika</Link>
+                <Link to="/karriere/offene-stellen" className="block px-4 py-2 text-sm hover:bg-slate-50" onClick={() => setCareerOpen(false)}>Offene Stellen</Link>
               </div>
             )}
           </div>
@@ -146,6 +168,22 @@ export default function Navbar(){
                 </div>
               )}
             </div>
+
+              <div>
+                <button
+                  className="w-full text-left px-2 py-2 rounded hover:bg-slate-50"
+                  onClick={() => setCareerOpen(v => !v)}
+                >
+                  Karriere ▾
+                </button>
+                {careerOpen && (
+                  <div className="pl-4">
+                    <Link to="/karriere/arbeiten" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setCareerOpen(false); }}>Arbeiten bei uns</Link>
+                    <Link to="/karriere/ausbildung" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setCareerOpen(false); }}>Ausbildung / Praktika</Link>
+                    <Link to="/karriere/offene-stellen" className="block px-2 py-2" onClick={() => { setOpenMobile(false); setCareerOpen(false); }}>Offene Stellen</Link>
+                  </div>
+                )}
+              </div>
 
             <div className="pt-2">
               <Link to="/contact" onClick={() => setOpenMobile(false)}>
